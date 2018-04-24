@@ -52,11 +52,13 @@ public class Matriz {
     //Calcula la relación entre costo y probabilidad. Se necesita un candidato y una matriz
     public double[][] calcularCostoXProbabilidad(int candidato, double A[][]) {
         candidato = candidato - 1;
-        double[][] elección = new double[votantes][2];
+        double[][] elección = new double[votantes][3];
         for (int i = 0; i < A.length; i++) {
+            elección[i][2] = i;
             elección[i][0] = A[i][candidato];
-            elección[i][1] = (1 - A[i][candidato]) * A[i][3];
+            elección[i][1] = (1 - A[i][candidato]) * A[i][A[i].length - 1];
         }
+        imprimir(elección);
         return elección;
     }
 
@@ -69,7 +71,7 @@ public class Matriz {
         return MenorValor;
     }
 
-    //Ordena el vector usando bonbón, BURBUJA y bellota
+    //Ordena el vector usando (bonbón, BURBUJA y bellota)
     public double[][] ordenarVector(double A[][]) {
         double[] AUX;
         for (int j = 0; j < A.length; j++) {
@@ -82,6 +84,16 @@ public class Matriz {
             }
         }
         return A;
+    }
+
+    public double[][] obtenerVotantesParaTorcer(double[][] A) {
+        double[][] Votantes = new double[cantidadNecesariaParaGanar][3];
+        for (int i = 0; i < Votantes.length; i++) {
+            Votantes[i][0] = A[i][0];
+            Votantes[i][1] = A[i][1];
+            Votantes[i][2] = A[i][2];
+        }
+        return Votantes;
     }
 
 }
