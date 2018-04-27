@@ -24,7 +24,7 @@ public class TorcedordeVotantes {
     public static void main(String[] args) {
         int vot = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de votantes"));
         int can = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de candidatos"));
-
+        
         Mostrador M = new Mostrador(vot, can);
     }
 }

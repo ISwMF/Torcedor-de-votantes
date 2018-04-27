@@ -54,7 +54,7 @@ public class Mostrador extends JFrame implements ActionListener {
             } else if (i <= votantes) {
                 PanelPorcentaje.add(new Label("V" + i));
             } else if (i % (votantes + 1) == 0) {
-                PanelPorcentaje.add(new Label("C"));
+                PanelPorcentaje.add(new Label("C" + (i/votantes)));
             } else {
                 Porcentajes[j] = new JTextField();
                 PanelPorcentaje.add(Porcentajes[j]);
